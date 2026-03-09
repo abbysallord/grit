@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRIT 2026–27 · Your Roadmap to Finale</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,600&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+:root {
+  --cream: #faf7f2;
+  --paper: #f4f0e8;
+  --warm-white: #fffcf8;
+  --ink: #1a1410;
+  --ink-2: #3d3530;
+  --ink-3: #6b5f58;
+  --ink-4: #9c8f86;
+  --ink-5: #c8bdb6;
+  --border: #e8e0d5;
+  --border-strong: #d4c9be;
+
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --amber-mid: #fde68a;
+  --green: #059669;
+  --green-light: #d1fae5;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --rose: #e11d48;
+  --rose-light: #ffe4e6;
+  --purple: #7c3aed;
+  --purple-light: #ede9fe;
+
+  --shadow-sm: 0 1px 3px rgba(26,20,16,0.06), 0 1px 2px rgba(26,20,16,0.04);
+  --shadow-md: 0 4px 12px rgba(26,20,16,0.08), 0 2px 4px rgba(26,20,16,0.05);
+  --shadow-lg: 0 12px 40px rgba(26,20,16,0.1), 0 4px 12px rgba(26,20,16,0.06);
+  --shadow-hover: 0 20px 60px rgba(26,20,16,0.12), 0 8px 20px rgba(26,20,16,0.08);
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Geist', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── PROGRESS BAR ─── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), #f59e0b, var(--amber));
+  width: 0%;
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 3px; left: 0; right: 0;
+  z-index: 999;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 56px;
+}
+
+.nav-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-right: 32px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-brand span { color: var(--amber); }
+
+.nav-links {
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+}
+
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-3);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all 0.15s;
+  letter-spacing: -0.01em;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.nav-link.active {
+  color: var(--amber);
+  background: var(--amber-light);
+}
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 500px at 50% 0%, rgba(217,119,6,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 80% 80%, rgba(37,99,235,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--amber-light);
+  border: 1px solid var(--amber-mid);
+  color: var(--amber);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Geist Mono', monospace;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+
+.hero-tag::before { content: '◆'; font-size: 8px; }
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(52px, 9vw, 108px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.hero-year {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(22px, 4vw, 42px);
+  font-weight: 300;
+  color: var(--ink-3);
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--ink-3);
+  max-width: 520px;
+  line-height: 1.65;
+  margin-bottom: 52px;
+  font-weight: 300;
+}
+
+.hero-sub strong { color: var(--ink); font-weight: 600; }
+
+.hero-stats {
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 52px;
+}
+
+.hero-stat {
+  background: var(--warm-white);
+  padding: 20px 32px;
+  text-align: center;
+  flex: 1;
+}
+
+.hero-stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hero-stat-val span { color: var(--amber); }
+
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--ink-4);
+  font-family: 'Geist Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-4);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  font-family: 'Geist Mono', monospace;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--ink-4), transparent);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ─── SECTION WRAPPER ─── */
+.section-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 12px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--ink-4);
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--ink-3);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+/* ─── HOW IT WORKS ─── */
+#how {
+  background: var(--warm-white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.how-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.how-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-accent, var(--amber));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.how-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-strong);
+}
+
+.how-card:hover::after { transform: scaleX(1); }
+
+.how-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.how-title {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.how-body {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  line-height: 1.65;
+}
+
+.how-body li {
+  list-style: none;
+  padding: 3px 0;
+}
+
+.how-body li::before {
+  content: '→ ';
+  color: var(--ink-5);
+  font-size: 11px;
+}
+
+/* ─── PHASE SECTIONS ─── */
+.phase-divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0 40px;
+}
+
+.phase-pill {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.phase-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.phase-meta {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-4);
+  white-space: nowrap;
+}
+
+/* ─── SKILL CARDS ─── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+.skill-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.skill-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+}
+
+.skill-top {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-emoji {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.skill-info { flex: 1; min-width: 0; }
+
+.skill-name {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.level-badge {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+}
+
+.l1 { background: var(--green-light); color: var(--green); }
+.l2 { background: var(--blue-light); color: var(--blue); }
+.l3 { background: var(--amber-light); color: var(--amber); }
+.l4 { background: var(--rose-light); color: var(--rose); }
+
+.skill-body { padding: 14px 20px; }
+
+.skill-obj {
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.topic {
+  font-size: 11px;
+  font-family: 'Geist Mono', monospace;
+  background: var(--paper);
+  color: var(--ink-3);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+.miles-row {
+  display: flex;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  align-items: center;
+}
+
+.miles-chip {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gold-chip { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber-mid); }
+.silver-chip { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
+.try-chip { background: var(--rose-light); color: var(--rose); border: 1px solid #fecdd3; }
+
+/* ─── MILES TOTAL BAR ─── */
+.miles-total-bar {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.miles-segment {
+  flex: 1;
+  min-width: 140px;
+  padding: 16px 24px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+.miles-segment:last-child { border-right: none; }
+
+.ms-label { font-size: 12px; color: var(--ink-4); margin-bottom: 6px; }
+
+.ms-val {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.ms-sub {
+  font-size: 11px;
+  color: var(--ink-5);
+  font-family: 'Geist Mono', monospace;
+  margin-top: 4px;
+}
+
+.ms-val.highlight { color: var(--amber); }
+
+/* ─── TRACK CARDS ─── */
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.track-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.track-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.track-head {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.track-emoji { font-size: 28px; }
+
+.track-name {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.track-sub {
+  font-size: 12px;
+  color: var(--ink-4);
+  font-family: 'Geist Mono', monospace;
+  margin-top: 2px;
+}
+
+.badge-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.badge-tab {
+  flex: 1;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  color: var(--ink-4);
+  border-right: 1px solid var(--border);
+  transition: all 0.15s;
+  font-family: 'Geist Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.badge-tab:last-child { border-right: none; }
+
+.badge-tab.active-tab { background: var(--amber-light); color: var(--amber); font-weight: 600; }
+
+.badge-tab.locked-tab { color: var(--ink-5); cursor: default; }
+
+.badge-content { display: none; padding: 20px 24px; }
+.badge-content.active-content { display: block; }
+
+.badge-skill-list {
+  list-style: none;
+  margin-bottom: 14px;
+}
+
+.badge-skill-list li {
+  font-size: 13px;
+  color: var(--ink-3);
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-skill-list li:last-child { border-bottom: none; }
+
+.badge-skill-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.interview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid #a7f3d0;
+  font-family: 'Geist Mono', monospace;
+}
+
+/* ─── BONUS TABLE ─── */
+#bonus { background: var(--warm-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.bonus-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.bonus-tab-btn {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'Geist', sans-serif;
+}
+
+.bonus-tab-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+.bonus-panel { display: none; }
+.bonus-panel.active { display: block; }
+
+.bonus-rows { display: flex; flex-direction: column; gap: 10px; }
+
+.bonus-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.bonus-row:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.bonus-platform {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 5px;
+  min-width: 90px;
+  text-align: center;
+}
+
+.platform-cf { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+.platform-lc { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.platform-cc { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.platform-isro { background: var(--blue-light); color: var(--blue); border: 1px solid #bfdbfe; }
+.platform-sih { background: var(--purple-light); color: var(--purple); border: 1px solid #ddd6fe; }
+.platform-niat { background: #fdf2f8; color: #9d174d; border: 1px solid #fbcfe8; }
+
+.bonus-milestone {
+  flex: 1;
+  font-size: 14px;
+  color: var(--ink-2);
+  font-weight: 400;
+}
+
+.bonus-milestone strong { color: var(--ink); font-weight: 600; }
+
+.bonus-miles-val {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  min-width: 70px;
+  text-align: right;
+}
+
+.bm-low { color: var(--ink-3); }
+.bm-med { color: var(--green); }
+.bm-high { color: var(--amber); }
+.bm-elite { color: var(--rose); }
+
+.bonus-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.bonus-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--amber);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ─── DIRECT TICKET ─── */
+#ticket { background: var(--cream); }
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.ticket-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.ticket-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--t-color, var(--amber));
+}
+
+.ticket-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.ticket-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.ticket-name {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.ticket-body {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  line-height: 1.65;
+}
+
+.ticket-body strong { color: var(--ink-2); font-weight: 600; }
+
+.ticket-highlights {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ticket-hl {
+  font-size: 12px;
+  color: var(--ink-3);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.ticket-hl::before {
+  content: '•';
+  color: var(--t-color, var(--amber));
+  font-size: 14px;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+/* ─── RULES ─── */
+#rules { background: var(--warm-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.rule-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.rule-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.rule-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.rule-title {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.rule-body {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+
+/* ─── WEEKLY PLAN ─── */
+#plan { background: var(--cream); }
+
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--amber), var(--border));
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.4s ease;
+}
+
+.tl-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tl-dot {
+  position: absolute;
+  left: -32px; top: 6px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--warm-white);
+  border: 2px solid var(--amber);
+  z-index: 1;
+}
+
+.tl-dot.done { background: var(--amber); }
+
+.tl-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  transition: all 0.2s ease;
+}
+
+.tl-card:hover { box-shadow: var(--shadow-md); }
+
+.tl-period {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.tl-title {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.tl-tasks {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tl-task {
+  font-size: 12px;
+  background: var(--paper);
+  color: var(--ink-2);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.tl-miles {
+  margin-top: 12px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--amber);
+  font-weight: 500;
+}
+
+/* ─── FOOTER / CLOSING ─── */
+.closing {
+  text-align: center;
+  padding: 100px 24px;
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 800px 400px at 50% 0%, rgba(217,119,6,0.15), transparent 60%);
+  pointer-events: none;
+}
+
+.closing-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.closing-title em { font-style: italic; color: var(--amber); }
+
+.closing-body {
+  font-size: 16px;
+  color: #a89f96;
+  max-width: 520px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+  position: relative;
+}
+
+.closing-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  position: relative;
+}
+
+.cs-item {
+  text-align: center;
+}
+
+.cs-val {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--amber);
+}
+
+.cs-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: #6b5f58;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .hero-stats { flex-direction: column; gap: 1px; }
+  .tracks-grid { grid-template-columns: 1fr; }
+  .miles-total-bar { flex-direction: column; }
+  .miles-segment { border-right: none; border-bottom: 1px solid var(--border); }
+  .miles-segment:last-child { border-bottom: none; }
+  nav { padding: 0 16px; }
+  .nav-brand { margin-right: 16px; font-size: 15px; }
+  .closing-stats { flex-wrap: wrap; gap: 28px; }
+}
+
+/* ─── ANIMATIONS ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.fade-in {
+  opacity: 0;
+}
+
+/* ─── INFO CALLOUT ─── */
+.callout {
+  background: var(--amber-light);
+  border: 1px solid var(--amber-mid);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.callout strong { color: var(--amber); font-weight: 600; }
+
+/* ─── SECTION BG ALTERNATION ─── */
+#skills { background: var(--cream); }
+#tracks { background: var(--warm-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+/* locked style */
+.locked-badge {
+  background: var(--paper);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: 13px;
+  color: var(--ink-4);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ─── SCROLL TO TOP ─── */
+#scroll-top {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.25s ease;
+  z-index: 998;
+}
+
+#scroll-top.visible { opacity: 1; transform: translateY(0); }
+#scroll-top:hover { background: var(--amber); transform: translateY(-2px); }
+
+/* ─── SECTION SEPARATORS ─── */
+.sep {
+  height: 1px;
+  background: var(--border);
+}
+
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav id="main-nav">
+  <span class="nav-brand">GRIT <span>'26–27</span></span>
+  <div class="nav-links">
+    <a href="#how" class="nav-link">How It Works</a>
+    <a href="#skills" class="nav-link">Skills & Miles</a>
+    <a href="#tracks" class="nav-link">Tracks</a>
+    <a href="#bonus" class="nav-link">Bonus Miles</a>
+    <a href="#ticket" class="nav-link">Direct Ticket</a>
+    <a href="#plan" class="nav-link">Game Plan</a>
+    <a href="#rules" class="nav-link">Rules</a>
+  </div>
+</nav>
+
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ═══════════════════════════════════════════ HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-tag fade-up">NIAT · GRIT Programme · 2026–27</div>
+
+  <h1 class="fade-up">Your Road<br>to <em>Finale</em></h1>
+
+  <div class="hero-year fade-up">Full Assault Roadmap</div>
+
+  <p class="hero-sub fade-up">
+    Every skill. Every badge. Every bonus mile.<br>
+    Built for someone who works <strong>harder than average.</strong>
+  </p>
+
+  <div class="hero-stats fade-up">
+    <div class="hero-stat">
+      <div class="hero-stat-val">4,<span>200</span><span style="font-size:18px;color:var(--ink-3)">+</span></div>
+      <div class="hero-stat-label">MAX MILES</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val"><span>13</span></div>
+      <div class="hero-stat-label">SKILL TRACKS</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val"><span>5</span></div>
+      <div class="hero-stat-label">TICKET PATHS</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val"><span>12</span></div>
+      <div class="hero-stat-label">MONTHS</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint fade-up">
+    <div class="scroll-arrow"></div>
+    <span>scroll to explore</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ HOW IT WORKS -->
+<section id="how">
+  <div class="section-wrap">
+    <div class="section-label">Overview</div>
+    <h2 class="section-title">How GRIT Works</h2>
+    <p class="section-desc">Two ways to reach Finale — stack miles through contests and bonuses, or bypass rankings entirely with a standout achievement.</p>
+
+    <div class="how-grid">
+      <div class="how-card fade-up" style="--card-accent: var(--amber)">
+        <span class="how-icon">🎯</span>
+        <div class="how-title">Skill Contests</div>
+        <ul class="how-body">
+          <li>Attempt any Skill Level in GRIT contests</li>
+          <li>Gold = full miles · Silver = 90% miles</li>
+          <li>Best score across all attempts counts</li>
+          <li>Silver/Gold unlocks next level</li>
+          <li>Retry after 5 days minimum gap</li>
+        </ul>
+      </div>
+      <div class="how-card fade-up" style="--card-accent: var(--blue)">
+        <span class="how-icon">🏅</span>
+        <div class="how-title">Track Badges</div>
+        <ul class="how-body">
+          <li>Complete required skills per badge tier</li>
+          <li>Pass mandatory Interview Round</li>
+          <li>Sequential — Novice before Specialist</li>
+          <li>Bonus miles on top of skill miles (TBA)</li>
+        </ul>
+      </div>
+      <div class="how-card fade-up" style="--card-accent: var(--green)">
+        <span class="how-icon">📊</span>
+        <div class="how-title">External Bonuses</div>
+        <ul class="how-body">
+          <li>Codeforces, LeetCode, CodeChef ratings</li>
+          <li>ISRO Robotics, SIH, NIAT Makers</li>
+          <li>All milestones are cumulative</li>
+          <li>Submit proof via GRIT Dashboard</li>
+        </ul>
+      </div>
+      <div class="how-card fade-up" style="--card-accent: var(--rose)">
+        <span class="how-icon">🎫</span>
+        <div class="how-title">Direct Ticket</div>
+        <ul class="how-body">
+          <li>One achievement = skip straight to Finale</li>
+          <li>ACM ICPC · GSoC · Top Accelerators</li>
+          <li>Research papers · Content creation</li>
+          <li>Window: Feb 2026 – Feb 2027</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="section-label">Skills & Miles</div>
+    <h2 class="section-title">The Full Skill Map</h2>
+    <p class="section-desc">Every skill, every level, every mile. Organized by phase — clear them in order, stack the miles.</p>
+
+    <!-- Miles Total -->
+    <div class="miles-total-bar fade-up">
+      <div class="miles-segment">
+        <div class="ms-label">Phase 1 Target</div>
+        <div class="ms-val">130<span style="font-size:18px;color:var(--ink-4)">+</span></div>
+        <div class="ms-sub">All L1 skills · Gold</div>
+      </div>
+      <div class="miles-segment">
+        <div class="ms-label">Phase 2 Target</div>
+        <div class="ms-val">+530<span style="font-size:18px;color:var(--ink-4)">+</span></div>
+        <div class="ms-sub">All L2 skills · Gold</div>
+      </div>
+      <div class="miles-segment">
+        <div class="ms-label">Phase 3 Target</div>
+        <div class="ms-val">+1,400<span style="font-size:18px;color:var(--ink-4)">+</span></div>
+        <div class="ms-sub">L3 + L4 · Gold</div>
+      </div>
+      <div class="miles-segment">
+        <div class="ms-label">Bonus Target</div>
+        <div class="ms-val">+2,000<span style="font-size:18px;color:var(--ink-4)">+</span></div>
+        <div class="ms-sub">CP platforms · stackable</div>
+      </div>
+      <div class="miles-segment">
+        <div class="ms-label">Total Maximum</div>
+        <div class="ms-val highlight">4,200<span style="font-size:18px">+</span></div>
+        <div class="ms-sub">All Gold · All bonuses</div>
+      </div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-divider">
+      <span class="phase-pill l1">PHASE 1</span>
+      <div class="phase-line"></div>
+      <span class="phase-meta">MONTHS 1–2 · TARGET 400–500 MILES</span>
+    </div>
+
+    <div class="callout">
+      <strong>Mission:</strong> Clear every available L1 in the first 8 weeks. These are your fastest, easiest miles. All 9 L1 skills passed at Gold = <strong>130+ miles</strong> before you've even hit L2. Simultaneously, start your Codeforces grind from Day 1 — CP ratings compound over months.
+    </div>
+
+    <div class="skills-grid" id="skills-p1">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-divider" style="margin-top: 64px;">
+      <span class="phase-pill l2">PHASE 2</span>
+      <div class="phase-line"></div>
+      <span class="phase-meta">MONTHS 3–6 · TARGET +1,000 MILES</span>
+    </div>
+
+    <div class="callout" style="background: var(--blue-light); border-color: #bfdbfe; border-left-color: var(--blue);">
+      <strong style="color: var(--blue)">Mission:</strong> Climb all L2s. Start badge interviews (Novice → Specialist). Aim for Codeforces Expert (1600). Badge bonus miles TBA — pursue anyway.
+    </div>
+
+    <div class="skills-grid" id="skills-p2"></div>
+
+    <!-- Phase 3 -->
+    <div class="phase-divider" style="margin-top: 64px;">
+      <span class="phase-pill l3">PHASE 3</span>
+      <div class="phase-line"></div>
+      <span class="phase-meta">MONTHS 7–12 · TARGET +1,400 MILES</span>
+    </div>
+
+    <div class="callout" style="background: #fff7ed; border-color: #fed7aa; border-left-color: var(--amber);">
+      <strong style="color: #c2410c">Mission:</strong> L3 and L4 are where the big miles live. 200–400 miles per level at Gold. Push Codeforces to Candidate Master (1000 bonus miles alone). Stack everything.
+    </div>
+
+    <div class="skills-grid" id="skills-p3"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TRACKS -->
+<section id="tracks">
+  <div class="section-wrap">
+    <div class="section-label">Tracks & Badges</div>
+    <h2 class="section-title">Earn Track Badges</h2>
+    <p class="section-desc">Complete skill requirements + pass the Interview Round to earn badges. They're sequential — Novice before Specialist. Bonus miles TBA but guaranteed on top of skill miles.</p>
+
+    <div class="tracks-grid">
+      <!-- AI Product Mastery -->
+      <div class="track-card fade-up">
+        <div class="track-head">
+          <span class="track-emoji">🧩</span>
+          <div>
+            <div class="track-name">AI Product Mastery</div>
+            <div class="track-sub">Build · Deploy · Scale AI products</div>
+          </div>
+        </div>
+        <div class="badge-tabs">
+          <div class="badge-tab active-tab" onclick="switchBadge(this, 'apm-novice')">Novice</div>
+          <div class="badge-tab" onclick="switchBadge(this, 'apm-specialist')">Specialist</div>
+          <div class="badge-tab locked-tab">Expert 🔒</div>
+          <div class="badge-tab locked-tab">Master 🔒</div>
+        </div>
+        <div class="badge-content active-content" id="apm-novice">
+          <ul class="badge-skill-list">
+            <li>Computational Thinking — L1</li>
+            <li>CS Fundamentals — L1</li>
+            <li>Applied Gen AI Development — L1</li>
+            <li>UI Engineering — L1</li>
+          </ul>
+          <span class="interview-badge">✔ Interview Round Required</span>
+        </div>
+        <div class="badge-content" id="apm-specialist">
+          <ul class="badge-skill-list">
+            <li>Computational Thinking — L2</li>
+            <li>CS Fundamentals — L1</li>
+            <li>Applied Gen AI Development — L2</li>
+            <li>UI Engineering — L1</li>
+            <li>Server-Side Engineering — L1</li>
+            <li>SQL — L1</li>
+          </ul>
+          <span class="interview-badge">✔ Interview Round Required</span>
+        </div>
+        <div class="badge-content" id="apm-expert"><div class="locked-badge">🔒 Criteria to be announced by NIAT</div></div>
+        <div class="badge-content" id="apm-master"><div class="locked-badge">🔒 Criteria to be announced by NIAT</div></div>
+      </div>
+
+      <!-- AI Systems Mastery -->
+      <div class="track-card fade-up">
+        <div class="track-head">
+          <span class="track-emoji">⚡</span>
+          <div>
+            <div class="track-name">AI Systems Mastery</div>
+            <div class="track-sub">Backend infrastructure · Placement-ready</div>
+          </div>
+        </div>
+        <div class="badge-tabs">
+          <div class="badge-tab active-tab" onclick="switchBadge(this, 'asm-novice')">Novice</div>
+          <div class="badge-tab" onclick="switchBadge(this, 'asm-specialist')">Specialist</div>
+          <div class="badge-tab locked-tab">Expert 🔒</div>
+          <div class="badge-tab locked-tab">Master 🔒</div>
+        </div>
+        <div class="badge-content active-content" id="asm-novice">
+          <ul class="badge-skill-list">
+            <li>Computational Thinking — L1</li>
+            <li>CS Fundamentals — L1</li>
+            <li>Applied Gen AI Development — L1</li>
+            <li>Quantitative Reasoning — L1</li>
+            <li>Critical Thinking & Communication — L1</li>
+          </ul>
+          <span class="interview-badge">✔ Interview Round Required</span>
+        </div>
+        <div class="badge-content" id="asm-specialist">
+          <ul class="badge-skill-list">
+            <li>Computational Thinking — L2</li>
+            <li>CS Fundamentals — L1</li>
+            <li>Applied Gen AI Development — L2</li>
+            <li>Quantitative Reasoning — L1</li>
+            <li>Critical Thinking & Communication — L1</li>
+          </ul>
+          <span class="interview-badge">✔ Interview Round Required</span>
+        </div>
+        <div class="badge-content" id="asm-expert"><div class="locked-badge">🔒 Criteria to be announced by NIAT</div></div>
+        <div class="badge-content" id="asm-master"><div class="locked-badge">🔒 Criteria to be announced by NIAT</div></div>
+      </div>
+
+      <!-- AI Models -->
+      <div class="track-card fade-up">
+        <div class="track-head">
+          <span class="track-emoji">🔬</span>
+          <div>
+            <div class="track-name">AI Models Mastery</div>
+            <div class="track-sub">All levels locked — watch announcements</div>
+          </div>
+        </div>
+        <div style="padding: 28px;">
+          <div class="locked-badge" style="margin-bottom: 12px; padding: 20px;">🔒 All badge tiers locked. When unlocked, be the first — stay sharp on DS & ML.</div>
+        </div>
+      </div>
+
+      <!-- AI Robotics -->
+      <div class="track-card fade-up">
+        <div class="track-head">
+          <span class="track-emoji">🤖</span>
+          <div>
+            <div class="track-name">AI Robotics Mastery</div>
+            <div class="track-sub">All levels locked — pairs with ISRO bonus</div>
+          </div>
+        </div>
+        <div style="padding: 28px;">
+          <div class="locked-badge" style="padding: 20px;">🔒 All badge tiers locked. Build physical AI foundations. ISRO Robotics bonus miles are already available while you wait.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ BONUS MILES -->
+<section id="bonus">
+  <div class="section-wrap">
+    <div class="section-label">External Bonuses</div>
+    <h2 class="section-title">Stack Your Bonus Miles</h2>
+    <p class="section-desc">Every milestone is independent and cumulative. Codeforces alone can yield 1,680 miles if you climb all four rungs. Start from Day 1 — ratings take months.</p>
+
+    <div class="callout" style="margin-bottom: 28px;">
+      <strong>How stacking works:</strong> LeetCode 1600 + 1800 + 2000 = 40 + 80 + 200 = <strong>320 miles</strong>. Codeforces Pupil → Specialist → Expert → Candidate Master = <strong>1,680 miles</strong>. All platforms count independently. Proof required via GRIT Dashboard.
+    </div>
+
+    <div class="bonus-tabs">
+      <button class="bonus-tab-btn active" onclick="switchBonus(this, 'b-cf')">Codeforces</button>
+      <button class="bonus-tab-btn" onclick="switchBonus(this, 'b-lc')">LeetCode</button>
+      <button class="bonus-tab-btn" onclick="switchBonus(this, 'b-cc')">CodeChef</button>
+      <button class="bonus-tab-btn" onclick="switchBonus(this, 'b-robot')">Robotics</button>
+    </div>
+
+    <div class="bonus-panel active" id="b-cf">
+      <div class="bonus-rows">
+        <div class="bonus-row"><span class="bonus-platform platform-cf">Codeforces</span><span class="bonus-milestone">Pupil <strong>≥1200 rating</strong></span><div><div class="bonus-miles-val bm-low">80</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:8%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-cf">Codeforces</span><span class="bonus-milestone">Specialist <strong>≥1400 rating</strong></span><div><div class="bonus-miles-val bm-med">200</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:20%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-cf">Codeforces</span><span class="bonus-milestone">Expert <strong>≥1600 rating</strong></span><div><div class="bonus-miles-val bm-high">400</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:40%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-cf">Codeforces</span><span class="bonus-milestone">Candidate Master <strong>≥1900 rating</strong> — peak goal</span><div><div class="bonus-miles-val bm-elite">1000</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:100%"></div></div></div></div>
+      </div>
+      <div style="margin-top: 16px; padding: 14px 18px; background: var(--amber-light); border: 1px solid var(--amber-mid); border-radius: var(--radius-sm); font-size: 12.5px; color: var(--ink-2);">
+        💡 <strong>All 4 rungs combined = 1,680 miles.</strong> Requires L1 Computational Thinking cleared as prerequisite.
+      </div>
+    </div>
+
+    <div class="bonus-panel" id="b-lc">
+      <div class="bonus-rows">
+        <div class="bonus-row"><span class="bonus-platform platform-lc">LeetCode</span><span class="bonus-milestone"><strong>1600</strong> rating</span><div><div class="bonus-miles-val bm-low">40</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:4%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-lc">LeetCode</span><span class="bonus-milestone"><strong>1800</strong> rating</span><div><div class="bonus-miles-val bm-low">80</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:8%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-lc">LeetCode</span><span class="bonus-milestone"><strong>2000</strong> rating — top 5% globally</span><div><div class="bonus-miles-val bm-med">200</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:20%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-lc">LeetCode</span><span class="bonus-milestone"><strong>2200</strong> rating</span><div><div class="bonus-miles-val bm-high">400</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:40%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-lc">LeetCode</span><span class="bonus-milestone"><strong>2400</strong> rating — elite level</span><div><div class="bonus-miles-val bm-elite">1000</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:100%"></div></div></div></div>
+      </div>
+    </div>
+
+    <div class="bonus-panel" id="b-cc">
+      <div class="bonus-rows">
+        <div class="bonus-row"><span class="bonus-platform platform-cc">CodeChef</span><span class="bonus-milestone"><strong>1 Star</strong></span><div><div class="bonus-miles-val bm-low">20</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:2%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-cc">CodeChef</span><span class="bonus-milestone"><strong>2 Star</strong></span><div><div class="bonus-miles-val bm-low">40</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:4%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-cc">CodeChef</span><span class="bonus-milestone"><strong>3 Star</strong></span><div><div class="bonus-miles-val bm-low">80</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:8%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-cc">CodeChef</span><span class="bonus-milestone"><strong>4 Star</strong></span><div><div class="bonus-miles-val bm-med">200</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:20%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-cc">CodeChef</span><span class="bonus-milestone"><strong>5 Star</strong></span><div><div class="bonus-miles-val bm-high">400</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:40%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-cc">CodeChef</span><span class="bonus-milestone"><strong>6 Star</strong> — all 6 rungs stack!</span><div><div class="bonus-miles-val bm-elite">1000</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:100%"></div></div></div></div>
+      </div>
+    </div>
+
+    <div class="bonus-panel" id="b-robot">
+      <div class="bonus-rows">
+        <div class="bonus-row"><span class="bonus-platform platform-isro">ISRO Robotics</span><span class="bonus-milestone">Qualifying Team — each member gets full miles</span><div><div class="bonus-miles-val bm-low">40</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:4%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-isro">ISRO Robotics</span><span class="bonus-milestone">Finalist Team</span><div><div class="bonus-miles-val bm-med">80</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:8%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-isro">ISRO Robotics</span><span class="bonus-milestone">Winning Team</span><div><div class="bonus-miles-val bm-high">200</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:20%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-sih">SIH</span><span class="bonus-milestone">National Finalist Team</span><div><div class="bonus-miles-val bm-low">40</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:4%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-sih">SIH</span><span class="bonus-milestone">National Winning Team</span><div><div class="bonus-miles-val bm-med">80</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:8%"></div></div></div></div>
+        <div class="bonus-row"><span class="bonus-platform platform-niat">NIAT Makers</span><span class="bonus-milestone">Finalist / Runner Up / 1st Place</span><div><div class="bonus-miles-val bm-low">20–80</div><div class="bonus-bar"><div class="bonus-bar-fill" style="width:8%"></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ DIRECT TICKET -->
+<section id="ticket">
+  <div class="section-wrap">
+    <div class="section-label">Direct Ticket to Finale</div>
+    <h2 class="section-title">Skip Straight to <em style="font-style:italic;color:var(--amber)">Finale</em></h2>
+    <p class="section-desc">One standout achievement between Feb 2026 and Feb 2027 earns you a non-transferable Direct Ticket to Finale — no miles ranking needed. Pursue this in parallel with everything else.</p>
+
+    <div class="ticket-grid">
+      <div class="ticket-card fade-up" style="--t-color: var(--amber)">
+        <div class="ticket-num">PATH 01</div>
+        <div class="ticket-name">Competitive Programming</div>
+        <div class="ticket-body">Represent India on a global stage through elite programming competitions.</div>
+        <div class="ticket-highlights">
+          <div class="ticket-hl"><strong>ACM ICPC Regionals Qualification</strong></div>
+          <div class="ticket-hl">More competitions to be added</div>
+          <div class="ticket-hl">Your CF/LC grind directly feeds this path</div>
+        </div>
+      </div>
+
+      <div class="ticket-card fade-up" style="--t-color: var(--green)">
+        <div class="ticket-num">PATH 02</div>
+        <div class="ticket-name">Open Source Contributions</div>
+        <div class="ticket-body">Meaningful contributions to widely-used open source projects.</div>
+        <div class="ticket-highlights">
+          <div class="ticket-hl"><strong>Google Summer of Code (GSoC) selection</strong></div>
+          <div class="ticket-hl">PRs merged into major repositories</div>
+          <div class="ticket-hl">Maintainer / significant contributor recognition</div>
+        </div>
+      </div>
+
+      <div class="ticket-card fade-up" style="--t-color: var(--blue)">
+        <div class="ticket-num">PATH 03</div>
+        <div class="ticket-name">Entrepreneurship</div>
+        <div class="ticket-body">Top accelerator selection or equity funding from recognized VCs.</div>
+        <div class="ticket-highlights">
+          <div class="ticket-hl"><strong>Y Combinator, Techstars, Peak XV Surge, Accel Atoms</strong></div>
+          <div class="ticket-hl">Thiel Fellowship · Antler India · South Park Commons</div>
+          <div class="ticket-hl">Shark Tank India pitch qualifies</div>
+          <div class="ticket-hl">Max 2 co-founders per startup</div>
+        </div>
+      </div>
+
+      <div class="ticket-card fade-up" style="--t-color: var(--purple)">
+        <div class="ticket-num">PATH 04</div>
+        <div class="ticket-name">Research & Academia</div>
+        <div class="ticket-body">Research paper accepted at a reputed international conference or journal in AI / CS.</div>
+        <div class="ticket-highlights">
+          <div class="ticket-hl"><strong>Specific venues TBA</strong> — likely NeurIPS, ICML, ACL, CVPR, ICLR</div>
+          <div class="ticket-hl">Start identifying target conferences now</div>
+          <div class="ticket-hl">Begin writing immediately</div>
+        </div>
+      </div>
+
+      <div class="ticket-card fade-up" style="--t-color: var(--rose)">
+        <div class="ticket-num">PATH 05</div>
+        <div class="ticket-name">Content Creation</div>
+        <div class="ticket-body">High-impact tech-focused presence in the developer or AI ecosystem.</div>
+        <div class="ticket-highlights">
+          <div class="ticket-hl"><strong>Qualifying platforms + follower thresholds TBA</strong></div>
+          <div class="ticket-hl">Videos, writing, or community building</div>
+          <div class="ticket-hl">Real influence and reach — start building now</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ GAME PLAN -->
+<section id="plan">
+  <div class="section-wrap">
+    <div class="section-label">Month-by-Month</div>
+    <h2 class="section-title">Your Game Plan</h2>
+    <p class="section-desc">12 months, built for max output. Since you work harder than average, this is calibrated accordingly.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot done"></div>
+        <div class="tl-card">
+          <div class="tl-period">MONTHS 1–2 · PHASE 1</div>
+          <div class="tl-title">Sweep all L1 levels. Start CP grind from Day 1.</div>
+          <div class="tl-tasks">
+            <span class="tl-task">Computational Thinking L1</span>
+            <span class="tl-task">CS Fundamentals L1</span>
+            <span class="tl-task">Applied Gen AI Dev L1</span>
+            <span class="tl-task">UI Engineering L1</span>
+            <span class="tl-task">Server-Side Eng L1</span>
+            <span class="tl-task">SQL L1</span>
+            <span class="tl-task">System Design L1</span>
+            <span class="tl-task">Quant Reasoning L1</span>
+            <span class="tl-task">Critical Thinking L1</span>
+            <span class="tl-task">Register on Codeforces + LeetCode</span>
+            <span class="tl-task">Start Codeforces Div 3/4 contests</span>
+          </div>
+          <div class="tl-miles">🎯 Target: 130–160 miles from skills + CP journey begins</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-period">MONTHS 3–4 · PHASE 2A</div>
+          <div class="tl-title">L2 sprint on all skills. Earn Novice badges in both tracks.</div>
+          <div class="tl-tasks">
+            <span class="tl-task">CT L2 · Gen AI L2 · UI Eng L2</span>
+            <span class="tl-task">Server-Side L2 · SQL L2</span>
+            <span class="tl-task">CS Fundamentals L2</span>
+            <span class="tl-task">AI Product Mastery — Novice Interview</span>
+            <span class="tl-task">AI Systems Mastery — Novice Interview</span>
+            <span class="tl-task">Target Codeforces Pupil (1200) → 80 miles</span>
+          </div>
+          <div class="tl-miles">🎯 Target: +400–450 miles · Codeforces Pupil bonus</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-period">MONTHS 5–6 · PHASE 2B</div>
+          <div class="tl-title">Complete all L2s. Earn Specialist badges. Hit CF Specialist.</div>
+          <div class="tl-tasks">
+            <span class="tl-task">Quant Reasoning L2 · Critical Thinking L2</span>
+            <span class="tl-task">System Design L2</span>
+            <span class="tl-task">AI Product Mastery — Specialist Interview</span>
+            <span class="tl-task">AI Systems Mastery — Specialist Interview</span>
+            <span class="tl-task">Target Codeforces Specialist (1400) → 200 miles</span>
+            <span class="tl-task">LeetCode grind → target 1600 rating</span>
+          </div>
+          <div class="tl-miles">🎯 Target: +300 miles · CF Specialist + LC 1600 bonuses</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-period">MONTHS 7–9 · PHASE 3A</div>
+          <div class="tl-title">L3 mastery. CF Expert territory. Direct Ticket opportunity peaks.</div>
+          <div class="tl-tasks">
+            <span class="tl-task">Computational Thinking L3</span>
+            <span class="tl-task">Applied Gen AI Dev L3</span>
+            <span class="tl-task">Target Codeforces Expert (1600) → 400 miles</span>
+            <span class="tl-task">LeetCode 1800 → 80 miles</span>
+            <span class="tl-task">ACM ICPC registration if eligible</span>
+            <span class="tl-task">GSoC org research + contribution start</span>
+            <span class="tl-task">Watch for locked skill unlocks</span>
+          </div>
+          <div class="tl-miles">🎯 Target: +800+ miles · CF Expert + LC bonuses</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-period">MONTHS 10–12 · PHASE 3B</div>
+          <div class="tl-title">L4 domination. Candidate Master push. All bonuses claimed.</div>
+          <div class="tl-tasks">
+            <span class="tl-task">Computational Thinking L4 → 400 miles</span>
+            <span class="tl-task">Applied Gen AI Dev L4 → 400 miles</span>
+            <span class="tl-task">Target CF Candidate Master (1900) → 1000 miles</span>
+            <span class="tl-task">LeetCode 2000+ → 200+ miles</span>
+            <span class="tl-task">Sweep any unlocked DS&ML / Quant Finance levels</span>
+            <span class="tl-task">Submit all external proof via GRIT Dashboard</span>
+            <span class="tl-task">Interview prep for Expert/Master badges</span>
+          </div>
+          <div class="tl-miles">🎯 Target: +2,000+ miles · Final boss month</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ RULES -->
+<section id="rules">
+  <div class="section-wrap">
+    <div class="section-label">Critical Rules</div>
+    <h2 class="section-title">Don't Get Tripped Up</h2>
+    <p class="section-desc">Nine rules you must internalize. Missing any one of these can cost you miles or a badge.</p>
+
+    <div class="rules-grid">
+      <div class="rule-card fade-up">
+        <span class="rule-icon">📅</span>
+        <div>
+          <div class="rule-title">5-Day Retry Gap</div>
+          <div class="rule-body">Minimum 5 days between attempts of the same Skill Level. Plan your week — don't waste an attempt unprepared.</div>
+        </div>
+      </div>
+      <div class="rule-card fade-up">
+        <span class="rule-icon">🏆</span>
+        <div>
+          <div class="rule-title">Best Score Always Wins</div>
+          <div class="rule-body">Highest score across all attempts counts. You're never penalized for retrying — always worth one more shot.</div>
+        </div>
+      </div>
+      <div class="rule-card fade-up">
+        <span class="rule-icon">🔓</span>
+        <div>
+          <div class="rule-title">Silver/Gold Unlocks Next Level</div>
+          <div class="rule-body">"Try Again" does NOT unlock L2. Earn at least Silver to progress. Aim Gold every single time.</div>
+        </div>
+      </div>
+      <div class="rule-card fade-up">
+        <span class="rule-icon">🎤</span>
+        <div>
+          <div class="rule-title">Badge Interview is Mandatory</div>
+          <div class="rule-body">Completing skill levels isn't enough. You must pass the Interview Round to officially earn the badge and claim bonus miles.</div>
+        </div>
+      </div>
+      <div class="rule-card fade-up">
+        <span class="rule-icon">📋</span>
+        <div>
+          <div class="rule-title">Proof Required for Bonuses</div>
+          <div class="rule-body">CP bonuses are NOT auto-credited. Submit valid proof via GRIT Dashboard. Screenshot everything now, submit later.</div>
+        </div>
+      </div>
+      <div class="rule-card fade-up">
+        <span class="rule-icon">👤</span>
+        <div>
+          <div class="rule-title">Ticket is Non-Transferable</div>
+          <div class="rule-body">Awarded to a specific individual only. Max 2 co-founders per startup under Entrepreneurship path.</div>
+        </div>
+      </div>
+      <div class="rule-card fade-up">
+        <span class="rule-icon">🔄</span>
+        <div>
+          <div class="rule-title">NIAT Can Revise Anything</div>
+          <div class="rule-body">Skills, scoring, miles, attempt rules, track structures — all revisable at any time. Monitor official channels religiously.</div>
+        </div>
+      </div>
+      <div class="rule-card fade-up">
+        <span class="rule-icon">🔒</span>
+        <div>
+          <div class="rule-title">Locked Skills = Future Miles</div>
+          <div class="rule-body">DS&ML (L1–L4), Data Intelligence, Quant Finance, Human Skills are all locked. Be the first through the door when they open.</div>
+        </div>
+      </div>
+      <div class="rule-card fade-up">
+        <span class="rule-icon">👥</span>
+        <div>
+          <div class="rule-title">Team Bonuses = Individual Miles</div>
+          <div class="rule-body">For ISRO, SIH, NIAT Makers — every eligible team member gets the full bonus miles individually. Team up strategically.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CLOSING -->
+<div class="closing">
+  <div class="closing-title">You work harder.<br><em>This is your edge.</em></div>
+  <p class="closing-body">Clear every L1 in 8 weeks. Stack every bonus mile. Grind CF from Day 1. Pursue a Direct Ticket simultaneously. When locked skills open — sweep them immediately. The gap is built now.</p>
+  <div class="closing-stats">
+    <div class="cs-item">
+      <div class="cs-val">4,200+</div>
+      <div class="cs-label">Max Miles</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-val">12</div>
+      <div class="cs-label">Months</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-val">5</div>
+      <div class="cs-label">Ticket Paths</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-val">∞</div>
+      <div class="cs-label">Your ceiling</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DATA ──
+const skillsP1 = [
+  { name: "Computational Thinking", level: "L1", icon: "🧠", bg: "#fef3c7", objective: "Implement correct logic using basic data structures and control flow.", topics: ["Arrays & Strings", "Loops & Conditionals", "Basic Math", "Simulation", "Time Complexity"], gold: 20, silver: 18 },
+  { name: "Applied Gen AI Dev", level: "L1", icon: "🤖", bg: "#dbeafe", objective: "Use AI tools effectively and responsibly. Prompt engineering, validation.", topics: ["Prompt Engineering", "Zero-shot vs Few-shot", "AI Output Validation"], gold: 20, silver: 18 },
+  { name: "CS Fundamentals", level: "L1", icon: "💻", bg: "#fce7f3", objective: "Understand core CS concepts. OS, DBMS, Networking, OOPS.", topics: ["OS Basics", "DBMS Fundamentals", "Networking", "OOPS"], gold: 10, silver: 9 },
+  { name: "UI Engineering", level: "L1", icon: "🖥️", bg: "#d1fae5", objective: "Build responsive static UI pages with HTML, CSS, JS.", topics: ["Semantic HTML", "CSS Box Model", "Flexbox", "Basic JS & DOM"], gold: 10, silver: 9 },
+  { name: "Server-Side Engineering", level: "L1", icon: "⚙️", bg: "#ede9fe", objective: "Develop CRUD-based REST APIs. Routing, middleware, auth basics.", topics: ["REST Principles", "Routing", "Middleware", "Auth Basics"], gold: 10, silver: 9 },
+  { name: "SQL", level: "L1", icon: "🗄️", bg: "#fff7ed", objective: "Write correct SQL queries. SELECT, JOINs, aggregations.", topics: ["SELECT/WHERE", "GROUP BY", "JOINs", "Subqueries"], gold: 10, silver: 9 },
+  { name: "System Design", level: "L1", icon: "🏗️", bg: "#dbeafe", objective: "Design basic application architectures. URL shortener, note-taking.", topics: ["High-Level Design", "DB Schema", "APIs", "Monolith vs Microservices"], gold: 20, silver: 18 },
+  { name: "Quantitative Reasoning", level: "L1", icon: "📐", bg: "#f0fdf4", objective: "Strong numerical reasoning. Percentages, ratios, TSD, profit/loss.", topics: ["Percentages & Ratios", "Time & Work", "Speed & Distance", "Compound Interest"], gold: 10, silver: 9 },
+  { name: "Critical Thinking & Comm", level: "L1", icon: "💬", bg: "#fce7f3", objective: "Grammar, vocabulary, sentence construction for placements.", topics: ["Grammar", "Sentence Correction", "Synonyms/Antonyms", "Reading Comprehension"], gold: 10, silver: 9 },
+];
+
+const skillsP2 = [
+  { name: "Computational Thinking", level: "L2", icon: "🧠", bg: "#fef3c7", objective: "Structured problem solving with correct data structure selection.", topics: ["Binary Search", "Hashing", "Sliding Window", "Stacks & Queues", "Prefix Sum"], gold: 80, silver: 72 },
+  { name: "Applied Gen AI Dev", level: "L2", icon: "🤖", bg: "#dbeafe", objective: "Integrate AI into applications. RAG basics, embeddings, API integration.", topics: ["API Integration", "RAG Basics", "Embeddings Concept"], gold: 80, silver: 72 },
+  { name: "System Design", level: "L2", icon: "🏗️", bg: "#dbeafe", objective: "Design scalable distributed systems. Instagram feed, chat apps.", topics: ["Caching", "Load Balancing", "Sharding", "Message Queues"], gold: 80, silver: 72 },
+  { name: "UI Engineering", level: "L2", icon: "🖥️", bg: "#d1fae5", objective: "Build interactive frontend applications with state and APIs.", topics: ["API Integration", "State Management", "Async JS", "Error Handling"], gold: 40, silver: 36 },
+  { name: "Server-Side Engineering", level: "L2", icon: "⚙️", bg: "#ede9fe", objective: "Design scalable backend systems. JWT auth, caching, rate limiting.", topics: ["JWT Auth", "Caching", "Rate Limiting", "Transactions"], gold: 40, silver: 36 },
+  { name: "SQL", level: "L2", icon: "🗄️", bg: "#fff7ed", objective: "Optimize and design efficient queries. Window functions, indexing.", topics: ["Indexing", "Window Functions", "Normalization", "Transactions"], gold: 40, silver: 36 },
+  { name: "CS Fundamentals", level: "L2", icon: "💻", bg: "#fce7f3", objective: "Apply core CS in practical scenarios. Scheduling, memory mgmt.", topics: ["OS Scheduling", "Indexing Internals", "Transactions", "Memory Management"], gold: 40, silver: 36 },
+  { name: "Quantitative Reasoning", level: "L2", icon: "📐", bg: "#f0fdf4", objective: "Placement-level aptitude with structured logical reasoning.", topics: ["Permutations & Combinations", "Probability", "Data Interpretation", "Logical Puzzles"], gold: 40, silver: 36 },
+  { name: "Critical Thinking & Comm", level: "L2", icon: "💬", bg: "#fce7f3", objective: "Analytical reading, inference, advanced communication for placements.", topics: ["Para Jumbles", "Critical Reasoning", "Strengthen/Weaken", "Tone Identification"], gold: 40, silver: 36 },
+];
+
+const skillsP3 = [
+  { name: "Computational Thinking", level: "L3", icon: "🧠", bg: "#fef3c7", objective: "Advanced algorithmic reasoning. Greedy, Graphs BFS/DFS, Basic DP.", topics: ["Greedy", "Graphs BFS/DFS", "Basic DP", "Backtracking", "Heap"], gold: 200, silver: 180 },
+  { name: "Applied Gen AI Dev", level: "L3", icon: "🤖", bg: "#dbeafe", objective: "Design AI systems. Vector DBs, prompt chaining, guardrails.", topics: ["Vector Databases", "Prompt Chaining", "Guardrails"], gold: 200, silver: 180 },
+  { name: "Computational Thinking", level: "L4", icon: "🧠", bg: "#fef3c7", objective: "High-performance algorithmic problems. Advanced DP, Segment Trees.", topics: ["Advanced DP", "Advanced Graphs", "Segment Trees", "Shortest Path Variants"], gold: 400, silver: 360 },
+  { name: "Applied Gen AI Dev", level: "L4", icon: "🤖", bg: "#dbeafe", objective: "Enterprise-grade AI. Fine-tuning, multi-agent workflows, cost optimization.", topics: ["Fine-tuning Concepts", "Multi-agent Workflows", "Cost Optimization"], gold: 400, silver: 360 },
+];
+
+const levelClass = { L1: 'l1', L2: 'l2', L3: 'l3', L4: 'l4' };
+
+function buildSkillCard(s) {
+  return `
+  <div class="skill-card">
+    <div class="skill-top">
+      <div class="skill-emoji" style="background:${s.bg}">${s.icon}</div>
+      <div class="skill-info">
+        <div class="skill-name">${s.name}</div>
+      </div>
+      <span class="level-badge ${levelClass[s.level]}">${s.level}</span>
+    </div>
+    <div class="skill-body">
+      <div class="skill-obj">${s.objective}</div>
+      <div class="topics">${s.topics.map(t => `<span class="topic">${t}</span>`).join('')}</div>
+      <div class="miles-row">
+        <span class="miles-chip gold-chip">🥇 ${s.gold} miles</span>
+        <span class="miles-chip silver-chip">🥈 ${s.silver} miles</span>
+        <span class="miles-chip try-chip">⟳ 5 miles</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+document.getElementById('skills-p1').innerHTML = skillsP1.map(buildSkillCard).join('');
+document.getElementById('skills-p2').innerHTML = skillsP2.map(buildSkillCard).join('');
+document.getElementById('skills-p3').innerHTML = skillsP3.map(buildSkillCard).join('');
+
+// ── BADGE TAB SWITCHING ──
+function switchBadge(tab, contentId) {
+  const card = tab.closest('.track-card');
+  card.querySelectorAll('.badge-tab').forEach(t => t.classList.remove('active-tab'));
+  card.querySelectorAll('.badge-content').forEach(c => c.classList.remove('active-content'));
+  tab.classList.add('active-tab');
+  const el = document.getElementById(contentId);
+  if (el) el.classList.add('active-content');
+}
+
+// ── BONUS PANEL SWITCHING ──
+function switchBonus(btn, panelId) {
+  document.querySelectorAll('.bonus-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.bonus-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+  // animate bars
+  setTimeout(() => {
+    document.querySelectorAll('#' + panelId + ' .bonus-bar-fill').forEach(bar => {
+      bar.style.transform = 'scaleX(1)';
+    });
+  }, 50);
+}
+
+// ── GSAP ANIMATIONS ──
+gsap.registerPlugin(ScrollTrigger);
+
+// Progress bar
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.body.scrollHeight - window.innerHeight;
+  const pct = (scrolled / maxScroll) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+
+  // Scroll to top btn
+  const scrollTopBtn = document.getElementById('scroll-top');
+  if (scrolled > 400) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+});
+
+// Hero entrance
+gsap.fromTo('.fade-up', 
+  { opacity: 0, y: 30 },
+  { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out', delay: 0.2 }
+);
+
+// Section elements
+gsap.utils.toArray('.how-card').forEach((card, i) => {
+  gsap.fromTo(card,
+    { opacity: 0, y: 40 },
+    { opacity: 1, y: 0, duration: 0.6, delay: i * 0.08, ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+gsap.utils.toArray('.skill-card').forEach((card, i) => {
+  gsap.fromTo(card,
+    { opacity: 0, y: 30, scale: 0.97 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.5, delay: (i % 3) * 0.06, ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+gsap.utils.toArray('.track-card').forEach((card, i) => {
+  gsap.fromTo(card,
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.6, delay: i * 0.1, ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+gsap.utils.toArray('.ticket-card').forEach((card, i) => {
+  gsap.fromTo(card,
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.5, delay: i * 0.07, ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+gsap.utils.toArray('.tl-item').forEach((item, i) => {
+  gsap.fromTo(item,
+    { opacity: 0, x: -30 },
+    { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out',
+      scrollTrigger: { trigger: item, start: 'top 88%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+gsap.utils.toArray('.rule-card').forEach((card, i) => {
+  gsap.fromTo(card,
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.5, delay: (i % 3) * 0.05, ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+gsap.utils.toArray('.section-title').forEach(el => {
+  gsap.fromTo(el,
+    { opacity: 0, y: 24 },
+    { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+gsap.utils.toArray('.miles-total-bar').forEach(el => {
+  gsap.fromTo(el,
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+// Closing animation
+gsap.fromTo('.closing-title',
+  { opacity: 0, y: 40 },
+  { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+    scrollTrigger: { trigger: '.closing', start: 'top 80%' }
+  }
+);
+
+// Counter animation for hero stats
+function animateCounter(el, target) {
+  let start = 0;
+  const duration = 1200;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target.toLocaleString(); clearInterval(timer); }
+    else { el.textContent = Math.floor(start).toLocaleString(); }
+  }, 16);
+}
+
+// Active nav highlighting
+const sections = document.querySelectorAll('section[id], div.closing');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + entry.target.id) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-56px 0px 0px 0px' });
+
+document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+
+// Init bonus bars for first panel
+setTimeout(() => {
+  document.querySelectorAll('#b-cf .bonus-bar-fill').forEach(bar => {
+    bar.style.transform = 'scaleX(1)';
+  });
+}, 600);
+
+</script>
+</body>
+</html>
